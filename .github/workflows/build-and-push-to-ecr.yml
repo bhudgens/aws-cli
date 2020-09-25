@@ -15,7 +15,7 @@ jobs:
 
         docker build -t $CONTAINER_IMAGE_SHA -t $CONTAINER_IMAGE_LATEST .
 
-        echo '${{ secrets.DOCKERHUB_PASS }}' | docker login --username bhudgens --password-stdin
+        echo '${{ secrets.DOCKERHUB_PASSWORD }}' | docker login --username bhudgens --password-stdin
 
         docker push $CONTAINER_IMAGE_SHA
         docker push $CONTAINER_IMAGE_LATEST
