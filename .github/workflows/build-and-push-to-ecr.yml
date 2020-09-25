@@ -1,0 +1,19 @@
+# vi:syntax=yaml
+name: Build Image and Push to ECR
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@master
+    - name: Build A Docker Image and Push to Dockerhub
+      run: |
+        BRANCH=$(echo ${{github.ref}} | cut -f3 -d'/')
+        CONTAINER_IMAGE="bhudgens/aws-cli"
+        CONTAINER_IMAGE_SHA="${CONTAINER_IMAGE}:${{github.sha}}"
+        CONTAINER_IMAGE_LATEST="${CONTAINER_IMAGE}:latest"
+
+        docker build -t $CONTAINER_IMAGE_SHA -t $CONTAINER_IMAGE_LATEST .
+
+        docker push $CONTAINER_IMAGE_SHA
+        docker push $CONTAINER_IMAGE_LATEST
