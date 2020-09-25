@@ -1,4 +1,4 @@
-![Build Image and Push to ECR](https://github.com/bhudgens/aws-cli/workflows/Build%20Image%20and%20Push%20to%20ECR/badge.svg)
+![Build Image and Push to Dockerhub](https://github.com/bhudgens/aws-cli/workflows/Build%20Image%20and%20Push%20to%20Dockerhub/badge.svg)
 
 ### Why?
 
